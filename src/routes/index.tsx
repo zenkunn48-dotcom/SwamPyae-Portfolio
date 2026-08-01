@@ -323,7 +323,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
 
             <div className="mt-10 grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
               {[
-                { n: "500%", l: "Maximum Actual ROAS (Google Ads)" },
+                { n: "500%", l: "MAXIMUM ACTUAL ROAS" },
                 { n: "20M+", l: "Ad Impressions Managed" },
                 { n: "60%+", l: "Average CPA Reduction" },
                 { n: "3+ Years", l: "Enterprise Marketing Experience" },

@@ -241,8 +241,8 @@ function Portfolio() {
                 rel="noopener noreferrer"
                 className="btn-neon inline-flex items-center gap-1.5 rounded-2xl px-3 py-1.5 text-[11px] font-semibold lg:px-4 lg:py-2 lg:text-xs"
               >
-                <Download className="h-4 w-4" />
-                <span className="inline whitespace-nowrap xl:hidden">Download Portfolio</span>
+                <Download className="h-4 w-4 shrink-0" />
+                <span className="inline whitespace-nowrap xl:hidden">Full Testimonial Portfolio</span>
                 <span className="hidden whitespace-nowrap xl:inline">Download Full Testimonial Portfolio</span>
               </a>
             </Magnetic>
@@ -268,7 +268,7 @@ function Portfolio() {
               className="btn-neon mt-3 flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold"
             >
               <Download className="h-4 w-4" />
-              Download Portfolio
+              Full Testimonial Portfolio
             </a>
           </div>
         )}

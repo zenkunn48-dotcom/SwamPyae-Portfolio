@@ -466,6 +466,34 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
           </div>
         </section>
 
+        {/* Brands & Experience — Infinite Marquee */}
+        <section id="brands" className="py-16">
+          <SectionHead eyebrow="Collaborations" title="Brands & Experience" sub="Brands and organizations I've driven growth for across agency, retail, education, and corporate sectors." />
+          <Reveal>
+            <div className="glass-panel relative mt-10 overflow-hidden rounded-3xl py-8">
+              <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
+              <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
+              <div className="marquee-track flex w-max items-center gap-8 md:gap-14">
+                {[...brands, ...brands].map((b, i) => (
+                  <div
+                    key={`${b.name}-${i}`}
+                    className="group flex shrink-0 items-center justify-center"
+                    title={b.name}
+                  >
+                    <img
+                      src={b.url}
+                      alt={`${b.name} logo`}
+                      loading="lazy"
+                      className="h-16 w-16 rounded-2xl object-contain p-1 opacity-80 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:shadow-[0_0_40px_-8px_color-mix(in_oklab,var(--violet)_70%,transparent)] sm:h-20 sm:w-20 md:h-24 md:w-24"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+        </section>
+
+
         {/* Experience — Vertical Timeline */}
         <section id="experience" className="py-20">
           <SectionHead eyebrow="Career" title="Professional Journey" sub="A track record of compounding impact across agencies, e-commerce, education, and corporate brands." />

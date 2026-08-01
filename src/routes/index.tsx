@@ -236,7 +236,7 @@ function Portfolio() {
           <div className="flex items-center gap-2">
             <Magnetic strength={18}>
               <a
-                href="https://drive.google.com/file/d/1rBP6F2nbiJbkwCwYaOrKrybPvViGM4kq/view?usp=sharing"
+href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-neon inline-flex items-center gap-1.5 rounded-2xl px-3 py-1.5 text-[11px] font-semibold lg:px-4 lg:py-2 lg:text-xs"
@@ -262,7 +262,7 @@ function Portfolio() {
               </button>
             ))}
             <a
-              href="https://drive.google.com/file/d/1rBP6F2nbiJbkwCwYaOrKrybPvViGM4kq/view?usp=sharing"
+              href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-neon mt-3 flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-semibold"

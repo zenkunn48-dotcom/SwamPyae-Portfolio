@@ -473,22 +473,23 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             <div className="glass-panel relative mt-10 overflow-hidden rounded-3xl py-8">
               <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-background to-transparent" />
               <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-background to-transparent" />
-              <div className="marquee-track flex w-max items-center gap-8 md:gap-14">
-                {[...brands, ...brands].map((b, i) => (
-                  <div
-                    key={`${b.name}-${i}`}
-                    className="group flex shrink-0 items-center justify-center"
-                    title={b.name}
-                  >
-                    <img
-                      src={b.url}
-                      alt={`${b.name} logo`}
-                      loading="lazy"
-                      className="h-16 w-16 rounded-2xl object-contain p-1 opacity-80 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:shadow-[0_0_40px_-8px_color-mix(in_oklab,var(--violet)_70%,transparent)] sm:h-20 sm:w-20 md:h-24 md:w-24"
-                    />
+              <div className="marquee-track flex w-max items-center">
+                {[0, 1].map((dup) => (
+                  <div key={dup} aria-hidden={dup === 1} className="flex shrink-0 items-center gap-8 pr-8 md:gap-14 md:pr-14">
+                    {brands.map((b) => (
+                      <div key={b.name} className="group flex shrink-0 items-center justify-center" title={b.name}>
+                        <img
+                          src={b.url}
+                          alt={`${b.name} logo`}
+                          loading="lazy"
+                          className="h-16 w-16 rounded-2xl object-contain p-1 opacity-80 transition-all duration-300 group-hover:scale-110 group-hover:opacity-100 group-hover:shadow-[0_0_40px_-8px_color-mix(in_oklab,var(--violet)_70%,transparent)] sm:h-20 sm:w-20 md:h-24 md:w-24"
+                        />
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
+
             </div>
           </Reveal>
         </section>

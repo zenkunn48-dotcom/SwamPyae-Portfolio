@@ -9,21 +9,15 @@ import {
   LayoutDashboard, Brush, Compass, MessageSquare, ShieldAlert,
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
-import brandCherryOo from "@/assets/brand-cherryoo.jpg.asset.json";
-import brandSaltPixel from "@/assets/brand-saltpixel.jpg.asset.json";
-import brandOlor from "@/assets/brand-olor.jpg.asset.json";
-import brandTaiju from "@/assets/brand-taiju.jpg.asset.json";
-import brandWilltec from "@/assets/brand-willtec.jpg.asset.json";
-import brandOneStep from "@/assets/brand-onestep.jpg.asset.json";
 const profileAsset = { url: "/profile.jpg" };
 
 const brands = [
-  { name: "Grand Cherry Oo", url: brandCherryOo.url },
-  { name: "Salt & Pixel", url: brandSaltPixel.url },
-  { name: "Olor Aromatherapy", url: brandOlor.url },
-  { name: "Taiju", url: brandTaiju.url },
-  { name: "Willtec Myanmar", url: brandWilltec.url },
-  { name: "One Step Myanmar", url: brandOneStep.url },
+  { name: "Grand Cherry Oo", url: "/logos/grand-cherry-oo.jpg" },
+  { name: "Salt & Pixel", url: "/logos/salt-and-pixel.jpg" },
+  { name: "Olor Aromatherapy", url: "/logos/olor-aromatherapy.jpg" },
+  { name: "Taiju", url: "/logos/taiju.jpg" },
+  { name: "Willtec Myanmar", url: "/logos/willtec-myanmar.jpg" },
+  { name: "One Step Myanmar", url: "/logos/one-step-myanmar.jpg" },
 ];
 
 export const Route = createFileRoute("/")({

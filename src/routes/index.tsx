@@ -9,7 +9,22 @@ import {
   LayoutDashboard, Brush, Compass, MessageSquare, ShieldAlert,
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
+import brandCherryOo from "@/assets/brand-cherryoo.jpg.asset.json";
+import brandSaltPixel from "@/assets/brand-saltpixel.jpg.asset.json";
+import brandOlor from "@/assets/brand-olor.jpg.asset.json";
+import brandTaiju from "@/assets/brand-taiju.jpg.asset.json";
+import brandWilltec from "@/assets/brand-willtec.jpg.asset.json";
+import brandOneStep from "@/assets/brand-onestep.jpg.asset.json";
 const profileAsset = { url: "/profile.jpg" };
+
+const brands = [
+  { name: "Grand Cherry Oo", url: brandCherryOo.url },
+  { name: "Salt & Pixel", url: brandSaltPixel.url },
+  { name: "Olor Aromatherapy", url: brandOlor.url },
+  { name: "Taiju", url: brandTaiju.url },
+  { name: "Willtec Myanmar", url: brandWilltec.url },
+  { name: "One Step Myanmar", url: brandOneStep.url },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({

@@ -18,6 +18,7 @@ const brands = [
   { name: "Taiju", url: "/logos/taiju.jpg" },
   { name: "Willtec Myanmar", url: "/logos/willtec-myanmar.jpg" },
   { name: "One Step Myanmar", url: "/logos/one-step-myanmar.jpg" },
+  { name: "NextGen - Garage Doors Solutions Melbourne", url: "/logos/nextgen-garage-doors.png" },
 ];
 
 export const Route = createFileRoute("/")({

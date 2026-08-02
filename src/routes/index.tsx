@@ -319,9 +319,14 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Magnetic strength={22}>
-                <button onClick={() => scrollTo("services")} className="btn-neon group inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold">
+                <a
+                  href="https://apexlabdigitalmarketingservice.lovable.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-neon group inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold"
+                >
                   Explore Services <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                </button>
+                </a>
               </Magnetic>
               <Magnetic strength={14}>
                 <button onClick={() => scrollTo("contact")} className="glass glow-hover inline-flex items-center gap-2 rounded-2xl px-5 py-3 text-sm font-semibold">

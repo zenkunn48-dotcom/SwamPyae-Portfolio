@@ -297,27 +297,46 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald" /> Available for Management and Strategic Roles
             </span>
-            <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="mt-5 text-[clamp(1.625rem,7vw,2.5rem)] font-bold leading-[1.1] tracking-tight sm:text-5xl">
               <span
                 className="block opacity-0"
                 style={{ animation: `word-rise 0.7s ease-out forwards`, animationDelay: `0ms` }}
               >
                 Hello,
               </span>
-              <span className="block">
-                {["I", "am", "Aung", "Swam", "Pyae"].map((word, i) => (
-                  <span
-                    key={i}
-                    className={`inline-block opacity-0 ${i >= 2 ? "font-bold bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent" : ""}`}
-                    style={{
-                      animation: `word-rise 0.7s ease-out forwards`,
-                      animationDelay: `${(i + 1) * 120}ms`,
-                      marginRight: "0.3em",
-                    }}
-                  >
-                    {word}
-                  </span>
-                ))}
+              <span className="block whitespace-nowrap">
+                {/* Mobile: shorter contraction to guarantee single line */}
+                <span className="inline sm:hidden">
+                  {["I'm", "Aung", "Swam", "Pyae"].map((word, i) => (
+                    <span
+                      key={`m-${i}`}
+                      className={`inline-block opacity-0 ${i >= 1 ? "font-bold bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent" : ""}`}
+                      style={{
+                        animation: `word-rise 0.7s ease-out forwards`,
+                        animationDelay: `${(i + 1) * 120}ms`,
+                        marginRight: "0.3em",
+                      }}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
+                {/* Tablet/Desktop: full greeting */}
+                <span className="hidden sm:inline">
+                  {["I", "am", "Aung", "Swam", "Pyae"].map((word, i) => (
+                    <span
+                      key={`d-${i}`}
+                      className={`inline-block opacity-0 ${i >= 2 ? "font-bold bg-gradient-to-r from-primary to-foreground bg-clip-text text-transparent" : ""}`}
+                      style={{
+                        animation: `word-rise 0.7s ease-out forwards`,
+                        animationDelay: `${(i + 1) * 120}ms`,
+                        marginRight: "0.3em",
+                      }}
+                    >
+                      {word}
+                    </span>
+                  ))}
+                </span>
               </span>
             </h1>
             <p className="mt-2 text-2xl font-semibold text-gradient sm:text-3xl">

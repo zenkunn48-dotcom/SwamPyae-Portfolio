@@ -297,7 +297,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/60 px-3 py-1 text-xs font-medium text-muted-foreground">
               <span className="h-1.5 w-1.5 rounded-full bg-emerald" /> Available for Management and Strategic Roles
             </span>
-            <h1 className="mt-5 text-[clamp(1.625rem,7vw,2.5rem)] font-bold leading-[1.1] tracking-tight sm:text-5xl">
+            <h1 className="mt-5 space-y-2 text-[clamp(1.625rem,7vw,2.5rem)] font-bold leading-snug tracking-tight sm:space-y-3 sm:text-5xl md:space-y-4">
               <span
                 className="block opacity-0"
                 style={{ animation: `word-rise 0.7s ease-out forwards`, animationDelay: `0ms` }}
@@ -339,7 +339,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                 </span>
               </span>
             </h1>
-            <p className="mt-2 text-2xl font-semibold text-gradient sm:text-3xl">
+            <p className="mt-4 text-2xl font-semibold text-gradient sm:mt-5 sm:text-3xl">
               Digital Marketing Senior Supervisor
             </p>
             <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">

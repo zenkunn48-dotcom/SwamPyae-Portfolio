@@ -141,7 +141,7 @@ export function EcosystemLoop({
         </div>
         <div className="mt-6 grid grid-cols-2 gap-3">
           {items.map((it, i) => (
-            <Pill key={it.label} label={it.label} Icon={it.icon} delay={i * 0.45} className="justify-center text-[11px]" />
+            <Pill key={it.label} label={it.label} Icon={it.icon} delay={i * 0.45} className="justify-center whitespace-normal text-center text-[11px]" />
           ))}
         </div>
       </div>

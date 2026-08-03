@@ -9,6 +9,7 @@ import {
   LayoutDashboard, Brush, Compass, MessageSquare, ShieldAlert,
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
+import { EcosystemLoop } from "@/components/EcosystemLoop";
 const profileAsset = { url: "/profile.jpg" };
 
 const brands = [
@@ -435,6 +436,12 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
               </Reveal>
             ))}
           </div>
+
+          <Reveal>
+            <div className="mt-16">
+              <EcosystemLoop />
+            </div>
+          </Reveal>
         </section>
 
         {/* Strategic Marketing Domains — Bento Grid */}

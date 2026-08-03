@@ -472,7 +472,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                   </div>
                   <h3 className="mb-4 text-lg font-semibold">{cat.title}</h3>
                   <div className="flex flex-wrap gap-2">
-                    {cat.tools.map((t) => (
+                    {cat.tools.map((t, ti) => (
                       <span
                         key={t.label}
                         className="group/badge relative inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-xs font-medium transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:border-transparent hover:bg-background/80"
@@ -481,9 +481,10 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                           className="pointer-events-none absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100"
                           style={{ boxShadow: `0 0 20px -5px ${cat.from}` }}
                         />
-                        <t.icon className="h-3.5 w-3.5" style={{ color: cat.from }} />
+                        <t.icon className="idle-shimmer h-3.5 w-3.5" style={{ color: cat.from, animationDelay: `${(i * 0.3 + ti * 0.25) % 3}s` }} />
                         {t.label}
                       </span>
+
                     ))}
                   </div>
                   <div

@@ -296,6 +296,27 @@
   animation: idle-opacity 3s ease-in-out infinite;
 }
 
+/* ===== Infinity loop ecosystem graphic ===== */
+@keyframes loop-comet-travel {
+  from { stroke-dashoffset: 0; }
+  to { stroke-dashoffset: -1885; }
+}
+.loop-comet {
+  stroke-dasharray: 200 1685;
+  animation: loop-comet-travel 8s linear infinite;
+}
+.loop-comet-glow {
+  stroke-dasharray: 160 1725;
+  animation: loop-comet-travel 8s linear infinite;
+  opacity: 0.7;
+}
+.motion-paused .loop-comet,
+.motion-paused .loop-comet-glow,
+.motion-paused .idle-glow,
+.motion-paused .idle-breathe {
+  animation-play-state: paused;
+}
+
 /* Soften ambient motion + blobs on small screens for performance */
 @media (max-width: 767px) {
   .marquee-track { animation-duration: 26s; }

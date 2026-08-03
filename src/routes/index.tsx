@@ -214,14 +214,15 @@ function Portfolio() {
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       {/* Floating background blobs */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="animate-float-slow absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)" }} />
-        <div className="animate-float-reverse absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full opacity-35 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)" }} />
-        <div className="animate-pulse-glow absolute bottom-0 left-1/4 h-[480px] w-[480px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)" }} />
-        <div className="animate-float-slow absolute top-2/3 right-1/3 h-[380px] w-[380px] rounded-full opacity-25 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)" }} />
+        <div className="ambient-blob animate-float-slow absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "0s", animationDuration: "19s" }} />
+        <div className="ambient-blob animate-float-reverse absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full opacity-35 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-4s", animationDuration: "24s" }} />
+        <div className="ambient-blob animate-pulse-glow absolute bottom-0 left-1/4 h-[480px] w-[480px] rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-7s", animationDuration: "16s" }} />
+        <div className="ambient-blob animate-float-slow absolute top-2/3 right-1/3 h-[380px] w-[380px] rounded-full opacity-25 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-11s", animationDuration: "22s" }} />
+
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />

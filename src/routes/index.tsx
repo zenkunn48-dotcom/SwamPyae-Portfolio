@@ -583,8 +583,15 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
 
 
         {/* Contact */}
-        <section id="contact" className="py-20">
+        <section id="contact" className="relative py-20">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div className="ambient-blob animate-float-reverse absolute -left-20 bottom-10 h-[340px] w-[340px] rounded-full opacity-20 blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-6s", animationDuration: "23s" }} />
+            <div className="ambient-blob animate-float-slow absolute -right-20 top-0 h-[300px] w-[300px] rounded-full opacity-[0.18] blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-13s", animationDuration: "21s" }} />
+          </div>
           <SectionHead eyebrow="Contact" title="Get In Touch" sub="Open to senior digital marketing roles, consulting engagements, and strategic collaborations." />
+
           <div className="mt-10 grid gap-6 lg:grid-cols-5">
             <div className="space-y-4 lg:col-span-2">
               {[

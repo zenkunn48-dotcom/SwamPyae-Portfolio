@@ -372,7 +372,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                 { n: "3+ Years", l: "Enterprise Marketing Experience" },
               ].map((s, i) => (
                 <Reveal key={s.l} delay={i * 100}>
-                  <div className="glass gradient-border glow-hover flex h-full flex-col items-center rounded-3xl p-4 text-center transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03]">
+                  <div className="glass gradient-border idle-glow flex h-full flex-col items-center rounded-3xl p-4 text-center transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03]" style={{ animationDelay: `${i * 0.5}s` }}>
                     <div className="text-gradient text-2xl font-extrabold tracking-tight sm:text-3xl">
                       <AnimatedCounter value={s.n} />
                     </div>

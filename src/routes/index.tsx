@@ -409,8 +409,15 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
         </section>
 
         {/* Services */}
-        <section id="services" className="py-20">
+        <section id="services" className="relative py-20">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div className="ambient-blob animate-float-slow absolute -left-24 top-10 h-[360px] w-[360px] rounded-full opacity-20 blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-3s", animationDuration: "20s" }} />
+            <div className="ambient-blob animate-float-reverse absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full opacity-[0.18] blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-9s", animationDuration: "25s" }} />
+          </div>
           <SectionHead eyebrow="What I Do" title="Core Expertise & Services" sub="A full-stack marketing operator — from strategy and media buying to creative direction and event execution." />
+
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>

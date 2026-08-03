@@ -415,8 +415,9 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div className="glass gradient-border glow-hover group relative h-full overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02]">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-                    style={{ background: "linear-gradient(135deg, var(--violet), var(--cyan))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--violet) 60%, transparent)" }}>
+                  <div className="idle-float mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, var(--violet), var(--cyan))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--violet) 60%, transparent)", animationDelay: `${i * 0.4}s` }}>
+
                     <s.icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold">{s.title}</h3>

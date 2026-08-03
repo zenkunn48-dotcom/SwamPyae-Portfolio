@@ -262,3 +262,50 @@
   animation-play-state: paused;
 }
 
+
+/* ===== Continuous idle motion (ambient, existing palette only) ===== */
+@keyframes idle-float {
+  0%, 100% { transform: translateY(-3px); }
+  50% { transform: translateY(3px); }
+}
+@keyframes idle-breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.015); }
+}
+@keyframes idle-glow-violet {
+  0%, 100% { box-shadow: 0 0 0 1px color-mix(in oklab, var(--violet) 22%, transparent), 0 0 18px -8px color-mix(in oklab, var(--violet) 40%, transparent); }
+  50% { box-shadow: 0 0 0 1px color-mix(in oklab, var(--cyan) 32%, transparent), 0 0 34px -6px color-mix(in oklab, var(--violet) 65%, transparent); }
+}
+@keyframes idle-opacity {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+@utility idle-float {
+  animation: idle-float 4.5s ease-in-out infinite;
+  will-change: transform;
+}
+@utility idle-breathe {
+  animation: idle-breathe 4s ease-in-out infinite;
+  will-change: transform;
+}
+@utility idle-glow {
+  animation: idle-glow-violet 3s ease-in-out infinite;
+}
+@utility idle-shimmer {
+  animation: idle-opacity 3s ease-in-out infinite;
+}
+
+/* Soften ambient motion + blobs on small screens for performance */
+@media (max-width: 767px) {
+  .marquee-track { animation-duration: 26s; }
+  .ambient-blob { opacity: 0.18 !important; transform: scale(0.75); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .idle-float, .idle-breathe, .idle-glow, .idle-shimmer,
+  .animate-float-slow, .animate-float-reverse, .animate-pulse-glow,
+  .marquee-track {
+    animation: none !important;
+  }
+}

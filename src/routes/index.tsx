@@ -214,14 +214,15 @@ function Portfolio() {
     <div className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       {/* Floating background blobs */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-        <div className="animate-float-slow absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)" }} />
-        <div className="animate-float-reverse absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full opacity-35 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)" }} />
-        <div className="animate-pulse-glow absolute bottom-0 left-1/4 h-[480px] w-[480px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)" }} />
-        <div className="animate-float-slow absolute top-2/3 right-1/3 h-[380px] w-[380px] rounded-full opacity-25 blur-3xl"
-          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)" }} />
+        <div className="ambient-blob animate-float-slow absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full opacity-40 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "0s", animationDuration: "19s" }} />
+        <div className="ambient-blob animate-float-reverse absolute top-1/3 -right-40 h-[560px] w-[560px] rounded-full opacity-35 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-4s", animationDuration: "24s" }} />
+        <div className="ambient-blob animate-pulse-glow absolute bottom-0 left-1/4 h-[480px] w-[480px] rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-7s", animationDuration: "16s" }} />
+        <div className="ambient-blob animate-float-slow absolute top-2/3 right-1/3 h-[380px] w-[380px] rounded-full opacity-25 blur-3xl"
+          style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-11s", animationDuration: "22s" }} />
+
         {/* Subtle grid overlay */}
         <div className="absolute inset-0 opacity-[0.04]"
           style={{ backgroundImage: "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
@@ -371,7 +372,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                 { n: "3+ Years", l: "Enterprise Marketing Experience" },
               ].map((s, i) => (
                 <Reveal key={s.l} delay={i * 100}>
-                  <div className="glass gradient-border glow-hover flex h-full flex-col items-center rounded-3xl p-4 text-center transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03]">
+                  <div className="glass gradient-border idle-glow flex h-full flex-col items-center rounded-3xl p-4 text-center transition-transform duration-300 hover:-translate-y-1 hover:scale-[1.03]" style={{ animationDelay: `${i * 0.5}s` }}>
                     <div className="text-gradient text-2xl font-extrabold tracking-tight sm:text-3xl">
                       <AnimatedCounter value={s.n} />
                     </div>
@@ -408,14 +409,22 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
         </section>
 
         {/* Services */}
-        <section id="services" className="py-20">
+        <section id="services" className="relative py-20">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div className="ambient-blob animate-float-slow absolute -left-24 top-10 h-[360px] w-[360px] rounded-full opacity-20 blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-3s", animationDuration: "20s" }} />
+            <div className="ambient-blob animate-float-reverse absolute -right-24 bottom-0 h-[320px] w-[320px] rounded-full opacity-[0.18] blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-9s", animationDuration: "25s" }} />
+          </div>
           <SectionHead eyebrow="What I Do" title="Core Expertise & Services" sub="A full-stack marketing operator — from strategy and media buying to creative direction and event execution." />
+
           <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {services.map((s, i) => (
               <Reveal key={s.title} delay={i * 90}>
                 <div className="glass gradient-border glow-hover group relative h-full overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02]">
-                  <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-                    style={{ background: "linear-gradient(135deg, var(--violet), var(--cyan))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--violet) 60%, transparent)" }}>
+                  <div className="idle-float mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, var(--violet), var(--cyan))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--violet) 60%, transparent)", animationDelay: `${i * 0.4}s` }}>
+
                     <s.icon className="h-6 w-6" />
                   </div>
                   <h3 className="text-lg font-semibold">{s.title}</h3>
@@ -435,8 +444,9 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
             {domains.map((d, i) => (
               <Reveal key={d.title} delay={i * 110}>
                 <div className="glass gradient-border glow-hover group relative flex w-full flex-col gap-5 overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1 sm:flex-row sm:items-center sm:gap-7 sm:p-8">
-                  <div className="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
-                    style={{ background: "linear-gradient(135deg, var(--cyan), var(--violet))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--cyan) 60%, transparent)" }}>
+                  <div className="idle-breathe inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: "linear-gradient(135deg, var(--cyan), var(--violet))", boxShadow: "0 10px 30px -10px color-mix(in oklab, var(--cyan) 60%, transparent)", animationDelay: `${i * 0.6}s` }}>
+
                     <d.icon className="h-8 w-8" />
                   </div>
                   <div className="min-w-0 flex-1">
@@ -469,7 +479,7 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                   </div>
                   <h3 className="mb-4 text-lg font-semibold">{cat.title}</h3>
                   <div className="flex flex-wrap gap-2">
-                    {cat.tools.map((t) => (
+                    {cat.tools.map((t, ti) => (
                       <span
                         key={t.label}
                         className="group/badge relative inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/50 px-3 py-1.5 text-xs font-medium transition-all duration-300 hover:scale-105 hover:-translate-y-0.5 hover:border-transparent hover:bg-background/80"
@@ -478,9 +488,10 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
                           className="pointer-events-none absolute inset-0 -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover/badge:opacity-100"
                           style={{ boxShadow: `0 0 20px -5px ${cat.from}` }}
                         />
-                        <t.icon className="h-3.5 w-3.5" style={{ color: cat.from }} />
+                        <t.icon className="idle-shimmer h-3.5 w-3.5" style={{ color: cat.from, animationDelay: `${(i * 0.3 + ti * 0.25) % 3}s` }} />
                         {t.label}
                       </span>
+
                     ))}
                   </div>
                   <div
@@ -572,8 +583,15 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
 
 
         {/* Contact */}
-        <section id="contact" className="py-20">
+        <section id="contact" className="relative py-20">
+          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+            <div className="ambient-blob animate-float-reverse absolute -left-20 bottom-10 h-[340px] w-[340px] rounded-full opacity-20 blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--cyan), transparent)", animationDelay: "-6s", animationDuration: "23s" }} />
+            <div className="ambient-blob animate-float-slow absolute -right-20 top-0 h-[300px] w-[300px] rounded-full opacity-[0.18] blur-3xl"
+              style={{ background: "radial-gradient(closest-side, var(--violet), transparent)", animationDelay: "-13s", animationDuration: "21s" }} />
+          </div>
           <SectionHead eyebrow="Contact" title="Get In Touch" sub="Open to senior digital marketing roles, consulting engagements, and strategic collaborations." />
+
           <div className="mt-10 grid gap-6 lg:grid-cols-5">
             <div className="space-y-4 lg:col-span-2">
               {[

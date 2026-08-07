@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
 import { EcosystemLoop } from "@/components/EcosystemLoop";
+import { ExperienceTimeline } from "@/components/ExperienceTimeline";
+
 const profileAsset = { url: "/profile.jpg" };
 
 const brands = [

@@ -330,6 +330,7 @@ export function ExperienceTimeline() {
         {experienceTimeline.map((e, i) => {
           const primary = i === 0;
           const count = (experienceSlidesMap[e.id] ?? []).length;
+          const hasSlides = count > 0;
           return (
             <div key={e.id} className="relative pl-12 sm:pl-16">
               <div
@@ -343,10 +344,10 @@ export function ExperienceTimeline() {
               />
               <motion.button
                 type="button"
-                onMouseEnter={() => !isMobile && open(e.id)}
-                onMouseLeave={scheduleClose}
-                onFocus={() => !isMobile && open(e.id)}
-                onClick={() => (activeId === e.id ? setActiveId(null) : open(e.id))}
+                onMouseEnter={() => !isMobile && hasSlides && open(e.id)}
+                onMouseLeave={() => hasSlides && scheduleClose()}
+                onFocus={() => !isMobile && hasSlides && open(e.id)}
+                onClick={() => hasSlides && (activeId === e.id ? setActiveId(null) : open(e.id))}
                 whileHover={{ y: -4 }}
                 transition={{ type: "spring", stiffness: 300, damping: 22 }}
                 className={`glass gradient-border glow-hover group relative w-full overflow-hidden rounded-3xl p-6 text-left sm:p-7 ${primary ? "glow-ring" : ""}`}
@@ -379,11 +380,11 @@ export function ExperienceTimeline() {
                 </p>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{e.desc}</p>
 
-                <p className="mt-4 text-xs font-medium text-muted-foreground">
-                  {count > 0
-                    ? `${isMobile ? "Tap" : "Hover"} to view ${count} portfolio slide${count === 1 ? "" : "s"}`
-                    : `${isMobile ? "Tap" : "Hover"} for role details`}
-                </p>
+                {hasSlides && (
+                  <p className="mt-4 text-xs font-medium text-muted-foreground">
+                    {isMobile ? "Tap" : "Hover"} to view {count} portfolio slide{count === 1 ? "" : "s"}
+                  </p>
+                )}
 
                 <div
                   className="pointer-events-none absolute -right-16 -bottom-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-60"

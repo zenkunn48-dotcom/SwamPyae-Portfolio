@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Briefcase, ChevronLeft, ChevronRight, ImageIcon, Target, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";

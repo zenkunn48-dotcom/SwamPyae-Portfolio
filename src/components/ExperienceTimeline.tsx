@@ -212,25 +212,16 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
         transition={{ type: "spring", stiffness: 260, damping: 24 }}
         className="glass-panel glow-ring relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl sm:max-h-[88vh]"
       >
-        <button
-          type="button"
-          aria-label="Close portfolio preview"
-          onClick={onClose}
-          className="glass absolute right-3 top-3 z-30 flex h-10 w-10 items-center justify-center rounded-full transition hover:scale-110 sm:right-4 sm:top-4 sm:h-9 sm:w-9"
-        >
-          <X className="h-5 w-5 sm:h-4 sm:w-4" />
-        </button>
-
-        {/* Header */}
+        {/* Sticky header bar */}
         <div
-          className="flex flex-none flex-wrap items-start gap-3 px-4 pt-4 pb-3 pr-14 sm:px-6 sm:pt-6 sm:pb-4 sm:pr-16"
+          className="flex flex-none items-start justify-between gap-3 px-4 pt-4 pb-3 sm:px-6 sm:pt-6 sm:pb-4"
           style={{ borderBottom: "1px solid color-mix(in oklab, var(--border) 40%, transparent)" }}
         >
-          <div className="min-w-0">
+          <div className="min-w-0 pr-3">
             <h3 className="text-base font-semibold sm:text-xl">{item.role}</h3>
             <p className="mt-1 text-sm font-medium text-gradient">{item.company}</p>
           </div>
-          <div className="ml-auto flex flex-wrap items-center gap-2">
+          <div className="flex shrink-0 flex-wrap items-center justify-end gap-2">
             <span className="glass rounded-full px-3 py-1 text-[11px] font-medium text-muted-foreground">{item.date}</span>
             <span
               className="rounded-full px-3 py-1 text-[11px] font-semibold"
@@ -241,6 +232,14 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
             >
               {slides.length} slide{slides.length === 1 ? "" : "s"}
             </span>
+            <button
+              type="button"
+              aria-label="Close portfolio preview"
+              onClick={onClose}
+              className="glass flex h-10 w-10 items-center justify-center rounded-full transition hover:scale-110 sm:h-9 sm:w-9"
+            >
+              <X className="h-5 w-5 sm:h-4 sm:w-4" />
+            </button>
           </div>
         </div>
 

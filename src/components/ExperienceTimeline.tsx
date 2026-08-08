@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Briefcase, ChevronLeft, ChevronRight, ImageIcon, Target, X } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -292,28 +292,26 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
 export function ExperienceTimeline() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const isMobile = useIsMobile();
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const active = experienceTimeline.find((e) => e.id === activeId) ?? null;
 
-  const open = (id: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActiveId(id);
-  };
-  const scheduleClose = () => {
-    if (isMobile) return;
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveId(null), 140);
-  };
+  const open = (id: string) => setActiveId(id);
+  const close = () => setActiveId(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActiveId(null);
     window.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    if (!activeId) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [activeId]);
 
   return (
     <div className="relative mt-12">
@@ -344,13 +342,12 @@ export function ExperienceTimeline() {
               />
               <motion.button
                 type="button"
-                onMouseEnter={() => !isMobile && hasSlides && open(e.id)}
-                onMouseLeave={() => hasSlides && scheduleClose()}
-                onFocus={() => !isMobile && hasSlides && open(e.id)}
-                onClick={() => hasSlides && (activeId === e.id ? setActiveId(null) : open(e.id))}
-                whileHover={{ y: -4 }}
+                disabled={!hasSlides}
+                aria-haspopup={hasSlides ? "dialog" : undefined}
+                onClick={() => hasSlides && open(e.id)}
+                whileHover={hasSlides ? { y: -4 } : undefined}
                 transition={{ type: "spring", stiffness: 300, damping: 22 }}
-                className={`glass gradient-border glow-hover group relative w-full overflow-hidden rounded-3xl p-6 text-left sm:p-7 ${primary ? "glow-ring" : ""}`}
+                className={`glass gradient-border group relative w-full overflow-hidden rounded-3xl p-6 text-left sm:p-7 ${hasSlides ? "glow-hover cursor-pointer" : "cursor-default"} ${primary ? "glow-ring" : ""}`}
               >
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
@@ -382,7 +379,7 @@ export function ExperienceTimeline() {
 
                 {hasSlides && (
                   <p className="mt-4 text-xs font-medium text-muted-foreground">
-                    {isMobile ? "Tap" : "Hover"} to view {count} portfolio slide{count === 1 ? "" : "s"}
+                    {isMobile ? "Tap" : "Click"} to view {count} portfolio slide{count === 1 ? "" : "s"}
                   </p>
                 )}
 
@@ -397,15 +394,7 @@ export function ExperienceTimeline() {
       </div>
 
       <AnimatePresence>
-        {active && (
-          <div
-            key={active.id}
-            onMouseEnter={() => open(active.id)}
-            onMouseLeave={scheduleClose}
-          >
-            <SlidePopup item={active} onClose={() => setActiveId(null)} />
-          </div>
-        )}
+        {active && <SlidePopup key={active.id} item={active} onClose={close} />}
       </AnimatePresence>
     </div>
   );

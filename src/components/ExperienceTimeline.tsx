@@ -394,15 +394,7 @@ export function ExperienceTimeline() {
       </div>
 
       <AnimatePresence>
-        {active && (
-          <div
-            key={active.id}
-            onMouseEnter={() => open(active.id)}
-            onMouseLeave={scheduleClose}
-          >
-            <SlidePopup item={active} onClose={() => setActiveId(null)} />
-          </div>
-        )}
+        {active && <SlidePopup key={active.id} item={active} onClose={close} />}
       </AnimatePresence>
     </div>
   );

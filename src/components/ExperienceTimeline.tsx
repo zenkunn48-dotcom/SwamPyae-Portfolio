@@ -379,7 +379,7 @@ export function ExperienceTimeline() {
 
                 {hasSlides && (
                   <p className="mt-4 text-xs font-medium text-muted-foreground">
-                    {isMobile ? "Tap" : "Hover"} to view {count} portfolio slide{count === 1 ? "" : "s"}
+                    {isMobile ? "Tap" : "Click"} to view {count} portfolio slide{count === 1 ? "" : "s"}
                   </p>
                 )}
 

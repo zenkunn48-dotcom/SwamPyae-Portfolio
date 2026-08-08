@@ -194,7 +194,7 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
 
   return (
     <motion.div
-      className="fixed inset-0 z-[70] flex items-center justify-center p-3 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto p-3 pt-14 sm:items-center sm:p-6"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -210,19 +210,22 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 8 }}
         transition={{ type: "spring", stiffness: 260, damping: 24 }}
-        className="glass-panel glow-ring relative flex max-h-[88vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl p-4 sm:p-6"
+        className="glass-panel glow-ring relative flex max-h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-3xl sm:max-h-[88vh]"
       >
         <button
           type="button"
           aria-label="Close portfolio preview"
           onClick={onClose}
-          className="glass absolute right-3 top-3 z-10 rounded-full p-2 transition hover:scale-110"
+          className="glass absolute right-3 top-3 z-30 flex h-10 w-10 items-center justify-center rounded-full transition hover:scale-110 sm:right-4 sm:top-4 sm:h-9 sm:w-9"
         >
-          <X className="h-4 w-4" />
+          <X className="h-5 w-5 sm:h-4 sm:w-4" />
         </button>
 
         {/* Header */}
-        <div className="flex flex-wrap items-start gap-3 pr-10">
+        <div
+          className="flex flex-none flex-wrap items-start gap-3 px-4 pt-4 pb-3 pr-14 sm:px-6 sm:pt-6 sm:pb-4 sm:pr-16"
+          style={{ borderBottom: "1px solid color-mix(in oklab, var(--border) 40%, transparent)" }}
+        >
           <div className="min-w-0">
             <h3 className="text-base font-semibold sm:text-xl">{item.role}</h3>
             <p className="mt-1 text-sm font-medium text-gradient">{item.company}</p>
@@ -241,7 +244,7 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
           </div>
         </div>
 
-        <div className="mt-4 grid min-h-0 flex-1 gap-4 overflow-y-auto lg:grid-cols-[1.6fr_1fr]">
+        <div className="grid min-h-0 flex-1 gap-4 overflow-y-auto px-4 py-4 sm:px-6 sm:py-6 lg:grid-cols-[1.6fr_1fr]">
           <SlideViewer item={item} />
 
           {/* Quick context sidebar */}

@@ -292,28 +292,26 @@ function SlidePopup({ item, onClose }: { item: ExperienceItem; onClose: () => vo
 export function ExperienceTimeline() {
   const [activeId, setActiveId] = useState<string | null>(null);
   const isMobile = useIsMobile();
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const active = experienceTimeline.find((e) => e.id === activeId) ?? null;
 
-  const open = (id: string) => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    setActiveId(id);
-  };
-  const scheduleClose = () => {
-    if (isMobile) return;
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    closeTimer.current = setTimeout(() => setActiveId(null), 140);
-  };
+  const open = (id: string) => setActiveId(id);
+  const close = () => setActiveId(null);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && setActiveId(null);
     window.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      if (closeTimer.current) clearTimeout(closeTimer.current);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  useEffect(() => {
+    if (!activeId) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [activeId]);
 
   return (
     <div className="relative mt-12">

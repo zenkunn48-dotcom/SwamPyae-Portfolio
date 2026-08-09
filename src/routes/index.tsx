@@ -124,6 +124,54 @@ const toolStack = [
   },
 ];
 
+const freelanceProjects = [
+  {
+    id: "nextgen-garage-doors",
+    name: "NextGen Garage Doors Solutions",
+    location: "Melbourne, Australia",
+    role: "Marketing & Media Buying Specialist",
+    highlights: [
+      "Managed end-to-end Digital Marketing & Media Buying for a leading garage door solutions provider in Melbourne, Australia.",
+      "Scaled Google Ads campaigns and executed Local SEO strategy to dominate targeted search positions.",
+      "Ran Meta Lead Generation Form Ads using Dynamic Creatives to drive qualified client inquiries.",
+      "Created customized visual graphics, promotional content, and messaging to strengthen brand presence.",
+    ],
+    skills: ["Google Ads", "Local SEO", "Meta Dynamic Ads", "Lead Gen Forms", "Brand Strategy", "Content Design"],
+    from: "var(--violet)",
+    to: "var(--cyan)",
+  },
+  {
+    id: "one-step-myanmar",
+    name: "One Step Myanmar",
+    location: "",
+    role: "Digital Branding & Performance Marketing Strategist",
+    highlights: [
+      "Led multi-platform corporate branding across LinkedIn and Facebook.",
+      "Authored and executed customized Marketing Plans, Branding Frameworks, and Strategic Business Plans.",
+      "Developed brand identity assets, copy, and visual designs tailored for target audiences.",
+      "Targeted decision-makers and key market segments via high-precision Meta Ads campaigns.",
+    ],
+    skills: ["LinkedIn Branding", "Facebook Marketing", "Business Strategy", "Marketing Planning", "Meta Ads", "Copywriting"],
+    from: "var(--cyan)",
+    to: "var(--blue)",
+  },
+  {
+    id: "mhway-myanmar",
+    name: "Mhway Myanmar",
+    location: "",
+    role: "E-Commerce & Performance Meta Ads Specialist",
+    highlights: [
+      "Managed high-performance Meta Ads campaigns specifically tailored to scale direct e-commerce sales.",
+      "Combined new audience prospecting with custom CRM data and retargeting layers to maximize customer lifetime value.",
+      "Continuously optimized daily budgets and ad performance to maintain high ROI and cost efficiency.",
+      "Produced end-to-end creative assets—from audience-centric graphic designs to promotional video edits.",
+    ],
+    skills: ["Meta Performance Ads", "Retargeting & CRM", "ROI Optimization", "E-Commerce Sales", "Video Editing", "Dynamic Creatives"],
+    from: "var(--amber)",
+    to: "var(--orange)",
+  },
+];
+
 // ---------- Animation Helpers ----------
 function useInView<T extends HTMLElement>(opts: IntersectionObserverInit = { threshold: 0.2 }) {
   const ref = useRef<T | null>(null);

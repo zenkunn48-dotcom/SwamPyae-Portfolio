@@ -7,6 +7,7 @@ import {
   Globe, Building2, Share2, ShieldCheck, Lightbulb, Settings,
   Download, Megaphone, LineChart, PenTool, Music, Pin, Tags,
   LayoutDashboard, Brush, Compass, MessageSquare, ShieldAlert,
+  CheckCircle2, Star, MapPin,
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
 import { EcosystemLoop } from "@/components/EcosystemLoop";

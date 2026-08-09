@@ -590,6 +590,13 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
           </Reveal>
         </section>
 
+        {/* Experience — Vertical Timeline */}
+        <section id="experience" className="py-20">
+          <SectionHead eyebrow="Career" title="Professional Journey" sub="A track record of compounding impact across agencies, e-commerce, education, and corporate brands. Click any role to view detailed portfolio slides." />
+          <ExperienceTimeline />
+
+        </section>
+
         {/* Freelance Projects — Static Showcase */}
         <section id="freelance" className="py-20">
           <SectionHead eyebrow="Independent Work" title="Freelance Projects" sub="Selected client engagements delivered end-to-end — from strategy and media buying to creative execution and performance optimization." />
@@ -644,13 +651,6 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
               </Reveal>
             ))}
           </div>
-        </section>
-
-        {/* Experience — Vertical Timeline */}
-        <section id="experience" className="py-20">
-          <SectionHead eyebrow="Career" title="Professional Journey" sub="A track record of compounding impact across agencies, e-commerce, education, and corporate brands. Hover any role to preview its portfolio slides." />
-          <ExperienceTimeline />
-
         </section>
 
 

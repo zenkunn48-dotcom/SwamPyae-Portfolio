@@ -7,6 +7,7 @@ import {
   Globe, Building2, Share2, ShieldCheck, Lightbulb, Settings,
   Download, Megaphone, LineChart, PenTool, Music, Pin, Tags,
   LayoutDashboard, Brush, Compass, MessageSquare, ShieldAlert,
+  CheckCircle2, Star,
 } from "lucide-react";
 import { Magnetic } from "@/components/Magnetic";
 import { EcosystemLoop } from "@/components/EcosystemLoop";
@@ -120,6 +121,54 @@ const toolStack = [
       { icon: MessageSquare, label: "Content Tone & Voice" },
       { icon: ShieldAlert, label: "Competitor Analysis" },
     ],
+  },
+];
+
+const freelanceProjects = [
+  {
+    id: "nextgen-garage-doors",
+    name: "NextGen Garage Doors Solutions",
+    location: "Melbourne, Australia",
+    role: "Marketing & Media Buying Specialist",
+    highlights: [
+      "Managed end-to-end Digital Marketing & Media Buying for a leading garage door solutions provider in Melbourne, Australia.",
+      "Scaled Google Ads campaigns and executed Local SEO strategy to dominate targeted search positions.",
+      "Ran Meta Lead Generation Form Ads using Dynamic Creatives to drive qualified client inquiries.",
+      "Created customized visual graphics, promotional content, and messaging to strengthen brand presence.",
+    ],
+    skills: ["Google Ads", "Local SEO", "Meta Dynamic Ads", "Lead Gen Forms", "Brand Strategy", "Content Design"],
+    from: "var(--violet)",
+    to: "var(--cyan)",
+  },
+  {
+    id: "one-step-myanmar",
+    name: "One Step Myanmar",
+    location: "",
+    role: "Digital Branding & Performance Marketing Strategist",
+    highlights: [
+      "Led multi-platform corporate branding across LinkedIn and Facebook.",
+      "Authored and executed customized Marketing Plans, Branding Frameworks, and Strategic Business Plans.",
+      "Developed brand identity assets, copy, and visual designs tailored for target audiences.",
+      "Targeted decision-makers and key market segments via high-precision Meta Ads campaigns.",
+    ],
+    skills: ["LinkedIn Branding", "Facebook Marketing", "Business Strategy", "Marketing Planning", "Meta Ads", "Copywriting"],
+    from: "var(--cyan)",
+    to: "var(--blue)",
+  },
+  {
+    id: "mhway-myanmar",
+    name: "Mhway Myanmar",
+    location: "",
+    role: "E-Commerce & Performance Meta Ads Specialist",
+    highlights: [
+      "Managed high-performance Meta Ads campaigns specifically tailored to scale direct e-commerce sales.",
+      "Combined new audience prospecting with custom CRM data and retargeting layers to maximize customer lifetime value.",
+      "Continuously optimized daily budgets and ad performance to maintain high ROI and cost efficiency.",
+      "Produced end-to-end creative assets—from audience-centric graphic designs to promotional video edits.",
+    ],
+    skills: ["Meta Performance Ads", "Retargeting & CRM", "ROI Optimization", "E-Commerce Sales", "Video Editing", "Dynamic Creatives"],
+    from: "var(--amber)",
+    to: "var(--orange)",
   },
 ];
 
@@ -541,6 +590,61 @@ href="https://drive.google.com/drive/folders/1hbJ5HUWvG40tVizofBPtg48j5oOUIppD?u
           </Reveal>
         </section>
 
+        {/* Freelance Projects — Static Showcase */}
+        <section id="freelance" className="py-20">
+          <SectionHead eyebrow="Independent Work" title="Freelance Projects" sub="Selected client engagements delivered end-to-end — from strategy and media buying to creative execution and performance optimization." />
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {freelanceProjects.map((p, i) => (
+              <Reveal key={p.id} delay={i * 120}>
+                <div className="glass gradient-border glow-hover group relative flex h-full flex-col overflow-hidden rounded-3xl p-6 transition-transform duration-300 hover:-translate-y-1.5 hover:scale-[1.02]">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="idle-float inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl text-white transition-transform duration-300 group-hover:scale-110"
+                      style={{ background: `linear-gradient(135deg, ${p.from}, ${p.to})`, boxShadow: `0 10px 30px -10px color-mix(in oklab, ${p.from} 60%, transparent)`, animationDelay: `${i * 0.4}s` }}>
+                      <Star className="h-6 w-6" />
+                    </div>
+                    {p.location && (
+                      <span className="inline-flex items-center gap-1 rounded-full border border-border bg-secondary/60 px-2.5 py-1 text-[10px] font-medium text-muted-foreground">
+                        <MapPin className="h-3 w-3" /> {p.location}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-4">
+                    <h3 className="text-lg font-semibold leading-snug">{p.name}</h3>
+                    <p className="mt-1 text-sm font-medium text-gradient">{p.role}</p>
+                  </div>
+
+                  <ul className="mt-5 flex-1 space-y-3">
+                    {p.highlights.map((h, hi) => (
+                      <li key={hi} className="flex items-start gap-2.5 text-sm leading-relaxed text-muted-foreground">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" style={{ color: p.from }} />
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-6 flex flex-wrap gap-1.5 border-t border-border/60 pt-5">
+                    {p.skills.map((s) => (
+                      <span
+                        key={s}
+                        className="rounded-full px-2.5 py-1 text-[11px] font-medium"
+                        style={{
+                          border: `1px solid color-mix(in oklab, ${p.from} 45%, transparent)`,
+                          background: `color-mix(in oklab, ${p.from} 12%, transparent)`,
+                        }}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="pointer-events-none absolute -right-16 -bottom-16 h-40 w-40 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-60"
+                    style={{ background: `radial-gradient(closest-side, ${p.from}, transparent)` }} />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </section>
 
         {/* Experience — Vertical Timeline */}
         <section id="experience" className="py-20">
